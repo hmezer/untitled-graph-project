@@ -5,6 +5,15 @@ import networkx as nx  # For creating and managing graphs (NetworkX)
 
 from urllib.parse import urlparse  # For safely handling and checking URLs
 
+# Define your proxy here (using a random example from the list you found)
+proxy_ip = "185.226.204.160"  # Replace with the actual proxy IP from your list
+proxy_port = "5713"         # Replace with the actual proxy port from your list
+
+proxies = {
+    'http': f'http://{proxy_ip}:{proxy_port}',
+    'https': f'http://{proxy_ip}:{proxy_port}',
+}
+
 def fetch_page(url):
     """
     Fetch the HTML content of a web page. Adds 'http://' if missing.
@@ -19,7 +28,8 @@ def fetch_page(url):
                             headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36',
                                      'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
                                      'Accept-Language': 'en-US,en;q=0.5',
-                                     'Connection': 'keep-alive'})
+                                     'Connection': 'keep-alive'},
+                                     proxies=proxies)
 
     # Return HTML content if request was successful
     if response.status_code == 200:
