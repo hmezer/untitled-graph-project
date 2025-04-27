@@ -36,4 +36,4 @@ if __name__ == "__main__":
     url = args.url
     
     # Example usage: pass these to your graph-building function
-    build_graph(url, depth_limit=3, proxy=proxy)
+    fetch_url(url, proxy)
