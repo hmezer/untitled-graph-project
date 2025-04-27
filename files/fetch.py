@@ -2,7 +2,7 @@ import argparse
 import requests
 
 # Function to fetch the page with proxy and timeout
-def fetch_page(url, proxy, timeout=5):
+def fetch_page(url, proxy, timeout=10):
     proxies = {
         'http': f'http://{proxy}',
         'https': f'https://{proxy}'
